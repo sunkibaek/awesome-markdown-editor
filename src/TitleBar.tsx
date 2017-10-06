@@ -1,6 +1,7 @@
 import React, { MouseEventHandler } from "react";
 
 import Color from "./styles/Color";
+import Space from "./styles/Space";
 
 interface IProps {
   onSubmit: MouseEventHandler<HTMLButtonElement>;
@@ -12,10 +13,10 @@ const styles = {
     backgroundColor: Color.NAVY,
     display: "flex",
     justifyContent: "space-between" as "space-between",
-    paddingBottom: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 20
+    paddingBottom: Space.LG,
+    paddingLeft: Space.MD,
+    paddingRight: Space.MD,
+    paddingTop: Space.LG
   },
   input: {
     backgroundColor: Color.WHITE,
@@ -23,10 +24,10 @@ const styles = {
     borderWidth: 0,
     color: Color.NAVY,
     fontWeight: 700 as 700,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10
+    paddingBottom: Space.MD,
+    paddingLeft: Space.LG,
+    paddingRight: Space.LG,
+    paddingTop: Space.MD
   },
   title: {
     color: Color.WHITE,

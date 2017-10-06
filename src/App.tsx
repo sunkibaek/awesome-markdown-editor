@@ -17,7 +17,7 @@ const styles = {
     flexDirection: "column" as "column"
   },
   inputPane: {
-    marginRight: 10
+    marginRight: Space.MD
   },
   panesContainer: {
     display: "flex",
