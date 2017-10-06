@@ -17,7 +17,7 @@ const styles = {
     color: Color.DARK_GRAY,
     flex: 1,
     fontSize: "1rem",
-    padding: Space.lg
+    padding: Space.LG
   }
 };
 

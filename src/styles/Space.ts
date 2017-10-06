@@ -1,6 +1,6 @@
 class Space {
-  public static md = 10;
-  public static lg = 20;
+  public static readonly MD = 10;
+  public static readonly LG = 20;
 }
 
 export default Space;

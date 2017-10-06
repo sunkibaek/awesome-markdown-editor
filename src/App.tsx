@@ -22,7 +22,7 @@ const styles = {
   panesContainer: {
     display: "flex",
     flex: 1,
-    padding: Space.md
+    padding: Space.MD
   }
 };
 

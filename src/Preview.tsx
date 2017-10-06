@@ -11,7 +11,7 @@ const styles = {
   container: {
     flex: 1,
     overflowY: "scroll" as "scroll",
-    padding: Space.lg
+    padding: Space.LG
   }
 };
 
