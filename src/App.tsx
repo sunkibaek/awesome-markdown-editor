@@ -5,7 +5,7 @@ import Space from "./styles/Space";
 import TextArea from "./TextArea";
 
 interface IState {
-  texts: string;
+  inputTexts: string;
 }
 
 const styles = {
@@ -25,20 +25,20 @@ class App extends Component<{}, IState> {
   constructor(props: {}) {
     super(props);
 
-    this.state = { texts: "" };
+    this.state = { inputTexts: "" };
   }
 
   public render() {
-    const { texts } = this.state;
+    const { inputTexts } = this.state;
 
     return (
       <div style={styles.container}>
         <h1>Awesome Markdown Editor</h1>
 
         <div style={styles.panesContainer}>
-          <TextArea texts={texts} onChange={this.handleTextAreaChange} />
+          <TextArea texts={inputTexts} onChange={this.handleTextAreaChange} />
 
-          <Preview texts={texts} />
+          <Preview texts={this.parsedTexts()} />
         </div>
       </div>
     );
@@ -47,7 +47,11 @@ class App extends Component<{}, IState> {
   private handleTextAreaChange: ChangeEventHandler<
     HTMLTextAreaElement
   > = event => {
-    this.setState({ texts: event.target.value });
+    this.setState({ inputTexts: event.target.value });
+  };
+
+  private parsedTexts = () => {
+    return this.state.inputTexts;
   };
 }
 
