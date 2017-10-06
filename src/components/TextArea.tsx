@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, Component } from "react";
 
-import Color from "./styles/Color";
-import Space from "./styles/Space";
+import Color from "../styles/Color";
+import Space from "../styles/Space";
 
 interface IProps {
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;

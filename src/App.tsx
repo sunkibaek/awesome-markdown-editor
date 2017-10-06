@@ -1,8 +1,8 @@
 import React, { ChangeEventHandler, Component } from "react";
 
+import InputPane from "./InputPane";
 import Preview from "./Preview";
 import Space from "./styles/Space";
-import TextArea from "./TextArea";
 
 interface IState {
   inputTexts: string;
@@ -36,7 +36,10 @@ class App extends Component<{}, IState> {
         <h1>Awesome Markdown Editor</h1>
 
         <div style={styles.panesContainer}>
-          <TextArea texts={inputTexts} onChange={this.handleTextAreaChange} />
+          <InputPane
+            texts={inputTexts}
+            onTextAreaChange={this.handleTextAreaChange}
+          />
 
           <Preview texts={this.parsedTexts()} />
         </div>
