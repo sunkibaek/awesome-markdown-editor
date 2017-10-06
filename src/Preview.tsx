@@ -10,6 +10,7 @@ interface IProps {
 const styles = {
   container: {
     flex: 1,
+    overflowY: "scroll" as "scroll",
     padding: Space.md
   }
 };

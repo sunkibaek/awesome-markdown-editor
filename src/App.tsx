@@ -2,7 +2,7 @@ import React, { ChangeEventHandler, Component, FormEventHandler } from "react";
 
 import InputPane from "./InputPane";
 import StorageManager from "./managers/StorageManager";
-import Preview from "./Preview";
+import OutputPane from "./OutputPane";
 import Space from "./styles/Space";
 
 interface IState {
@@ -54,7 +54,7 @@ class App extends Component<{}, IState> {
             style={styles.inputPane}
           />
 
-          <Preview texts={this.parsedTexts()} />
+          <OutputPane texts={inputTexts} />
         </div>
       </div>
     );
@@ -78,10 +78,6 @@ class App extends Component<{}, IState> {
     HTMLTextAreaElement
   > = event => {
     this.setState({ inputTexts: event.target.value });
-  };
-
-  private parsedTexts = () => {
-    return this.state.inputTexts;
   };
 }
 
