@@ -1,6 +1,7 @@
-import React, { ChangeEventHandler, Component } from "react";
+import React, { ChangeEventHandler, Component, FormEventHandler } from "react";
 
 import InputPane from "./InputPane";
+import StorageManager from "./managers/StorageManager";
 import Preview from "./Preview";
 import Space from "./styles/Space";
 
@@ -15,6 +16,9 @@ const styles = {
     flexDirection: "column" as "column",
     padding: Space.md
   },
+  inputPane: {
+    marginRight: 10
+  },
   panesContainer: {
     display: "flex",
     flex: 1
@@ -22,10 +26,17 @@ const styles = {
 };
 
 class App extends Component<{}, IState> {
+  private storageManager: StorageManager;
+
   constructor(props: {}) {
     super(props);
 
+    this.storageManager = new StorageManager(StorageManager.KEYS.texts);
     this.state = { inputTexts: "" };
+  }
+
+  public componentDidMount() {
+    this.loadTexts();
   }
 
   public render() {
@@ -38,7 +49,9 @@ class App extends Component<{}, IState> {
         <div style={styles.panesContainer}>
           <InputPane
             texts={inputTexts}
+            onSubmit={this.save}
             onTextAreaChange={this.handleTextAreaChange}
+            style={styles.inputPane}
           />
 
           <Preview texts={this.parsedTexts()} />
@@ -46,6 +59,20 @@ class App extends Component<{}, IState> {
       </div>
     );
   }
+
+  private loadTexts = () => {
+    const texts = this.storageManager.load() || "";
+
+    this.setState({
+      inputTexts: texts
+    });
+  };
+
+  private save: FormEventHandler<HTMLFormElement> = event => {
+    event.preventDefault();
+
+    this.storageManager.save(this.state.inputTexts);
+  };
 
   private handleTextAreaChange: ChangeEventHandler<
     HTMLTextAreaElement
