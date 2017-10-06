@@ -1,9 +1,10 @@
-import React, { ChangeEventHandler, Component, FormEventHandler } from "react";
+import React, { ChangeEventHandler, Component, MouseEventHandler } from "react";
 
 import InputPane from "./InputPane";
 import StorageManager from "./managers/StorageManager";
 import OutputPane from "./OutputPane";
 import Space from "./styles/Space";
+import TitleBar from "./TitleBar";
 
 interface IState {
   inputTexts: string;
@@ -44,12 +45,11 @@ class App extends Component<{}, IState> {
 
     return (
       <div style={styles.container}>
-        <h1>Awesome Markdown Editor</h1>
+        <TitleBar onSubmit={this.save} />
 
         <div style={styles.panesContainer}>
           <InputPane
             texts={inputTexts}
-            onSubmit={this.save}
             onTextAreaChange={this.handleTextAreaChange}
             style={styles.inputPane}
           />
@@ -68,7 +68,7 @@ class App extends Component<{}, IState> {
     });
   };
 
-  private save: FormEventHandler<HTMLFormElement> = event => {
+  private save: MouseEventHandler<HTMLButtonElement> = event => {
     event.preventDefault();
 
     this.storageManager.save(this.state.inputTexts);
