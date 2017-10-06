@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 import Space from "./styles/Space";
 
@@ -14,7 +15,9 @@ const styles = {
 };
 
 const Preview = ({ texts }: IProps) => (
-  <div style={styles.container}>{texts}</div>
+  <div style={styles.container}>
+    <ReactMarkdown source={texts} />
+  </div>
 );
 
 export default Preview;
