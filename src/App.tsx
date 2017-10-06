@@ -8,6 +8,7 @@ import TitleBar from "./TitleBar";
 
 interface IState {
   inputTexts: string;
+  isSaved: boolean;
 }
 
 const styles = {
@@ -28,12 +29,16 @@ const styles = {
 
 class App extends Component<{}, IState> {
   private storageManager: StorageManager;
+  private saveTimer: NodeJS.Timer;
 
   constructor(props: {}) {
     super(props);
 
     this.storageManager = new StorageManager(StorageManager.KEYS.texts);
-    this.state = { inputTexts: "" };
+    this.state = {
+      inputTexts: "",
+      isSaved: false
+    };
   }
 
   public componentDidMount() {
@@ -41,11 +46,11 @@ class App extends Component<{}, IState> {
   }
 
   public render() {
-    const { inputTexts } = this.state;
+    const { inputTexts, isSaved } = this.state;
 
     return (
       <div style={styles.container}>
-        <TitleBar onSubmit={this.save} />
+        <TitleBar isSaved={isSaved} onSubmit={this.save} />
 
         <div style={styles.panesContainer}>
           <InputPane
@@ -72,6 +77,19 @@ class App extends Component<{}, IState> {
     event.preventDefault();
 
     this.storageManager.save(this.state.inputTexts);
+    this.setIsSaved();
+  };
+
+  private setIsSaved = () => {
+    this.setState({ isSaved: true });
+
+    this.saveTimer = setTimeout(() => {
+      if (typeof this.saveTimer === "number") {
+        clearTimeout(this.saveTimer);
+      }
+
+      this.setState({ isSaved: false });
+    }, 1000);
   };
 
   private handleTextAreaChange: ChangeEventHandler<

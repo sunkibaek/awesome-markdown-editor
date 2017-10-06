@@ -1,9 +1,10 @@
-import React, { MouseEventHandler } from "react";
+import React, { Component, MouseEventHandler } from "react";
 
 import Color from "./styles/Color";
 import Space from "./styles/Space";
 
 interface IProps {
+  isSaved: boolean;
   onSubmit: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -17,6 +18,9 @@ const styles = {
     paddingLeft: Space.MD,
     paddingRight: Space.MD,
     paddingTop: Space.LG
+  },
+  disabledInput: {
+    backgroundColor: Color.LIGHT_GRAY
   },
   input: {
     backgroundColor: Color.WHITE,
@@ -36,14 +40,29 @@ const styles = {
   }
 };
 
-const TitleBar = ({ onSubmit }: IProps) => (
-  <div style={styles.container}>
-    <h1 style={styles.title}>Awesome Markdown Editor</h1>
+class TitleBar extends Component<IProps> {
+  public render() {
+    return (
+      <div style={styles.container}>
+        <h1 style={styles.title}>Awesome Markdown Editor</h1>
 
-    <button onClick={onSubmit} style={styles.input}>
-      SAVE
-    </button>
-  </div>
-);
+        <button
+          disabled={this.props.isSaved}
+          onClick={this.props.onSubmit}
+          style={this.buttonStyle()}
+        >
+          {this.buttonText()}
+        </button>
+      </div>
+    );
+  }
+
+  private buttonStyle = () => ({
+    ...styles.input,
+    ...this.props.isSaved ? styles.disabledInput : {}
+  });
+
+  private buttonText = () => (this.props.isSaved ? "SAVED!" : "SAVE");
+}
 
 export default TitleBar;
