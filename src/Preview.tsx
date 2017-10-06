@@ -11,13 +11,13 @@ const styles = {
   container: {
     flex: 1,
     overflowY: "scroll" as "scroll",
-    padding: Space.md
+    padding: Space.lg
   }
 };
 
 const Preview = ({ texts }: IProps) => (
   <div style={styles.container}>
-    <ReactMarkdown source={texts} />
+    <ReactMarkdown className="markdown-container" source={texts} />
   </div>
 );
 

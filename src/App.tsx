@@ -14,15 +14,15 @@ const styles = {
   container: {
     display: "flex",
     flex: 1,
-    flexDirection: "column" as "column",
-    padding: Space.md
+    flexDirection: "column" as "column"
   },
   inputPane: {
     marginRight: 10
   },
   panesContainer: {
     display: "flex",
-    flex: 1
+    flex: 1,
+    padding: Space.md
   }
 };
 

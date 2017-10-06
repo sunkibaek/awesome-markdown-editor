@@ -8,3 +8,11 @@ body,
   display: flex;
   flex: 1;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+.markdown-container {
+  color: #223149;
+}
