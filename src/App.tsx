@@ -1,6 +1,7 @@
 import React from "react";
 
 import Space from "./styles/Space";
+import TextArea from "./TextArea";
 
 const styles = {
   container: {
@@ -14,6 +15,8 @@ const styles = {
 const App = () => (
   <div style={styles.container}>
     <h1>Awesome Markdown Editor</h1>
+
+    <TextArea />
   </div>
 );
 
