@@ -1,7 +1,12 @@
-import React from "react";
+import React, { ChangeEventHandler, Component } from "react";
 
 import Color from "./styles/Color";
 import Space from "./styles/Space";
+
+interface IProps {
+  onChange?: ChangeEventHandler<HTMLTextAreaElement>;
+  texts: string;
+}
 
 const styles = {
   textarea: {
@@ -16,6 +21,28 @@ const styles = {
   }
 };
 
-const TextArea = () => <textarea style={styles.textarea} />;
+class TextArea extends Component<IProps> {
+  public render() {
+    const { texts } = this.props;
+
+    return (
+      <textarea
+        style={styles.textarea}
+        value={texts}
+        onChange={this.handleTextareaChange}
+      />
+    );
+  }
+
+  private handleTextareaChange: ChangeEventHandler<
+    HTMLTextAreaElement
+  > = event => {
+    const { onChange } = this.props;
+
+    if (typeof onChange === "function") {
+      onChange(event);
+    }
+  };
+}
 
 export default TextArea;
