@@ -14,10 +14,10 @@ const styles = {
     backgroundColor: Color.LIGHT_GRAY
   },
   input: {
-    backgroundColor: Color.WHITE,
+    backgroundColor: Color.GREEN,
     borderRadius: 3,
     borderWidth: 0,
-    color: Color.NAVY,
+    color: Color.WHITE,
     fontWeight: 700 as 700,
     paddingBottom: Space.MD,
     paddingLeft: Space.LG,
