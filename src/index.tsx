@@ -4,6 +4,6 @@ import ReactDOM from "react-dom";
 
 import "./css/main.css";
 
-const App = () => <h1>Awesome Markdown Editor</h1>;
+import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("container"));
