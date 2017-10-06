@@ -10,11 +10,9 @@ interface IProps {
 
 const styles = {
   textarea: {
-    backgroundColor: Color.WHITE,
-    borderColor: Color.LIGHT_GRAY,
-    borderRadius: 3,
-    borderWidth: 1,
-    color: Color.DARK_GRAY,
+    backgroundColor: Color.LIGHT_NAVY,
+    borderWidth: 0,
+    color: Color.WHITE,
     flex: 1,
     fontSize: "1rem",
     padding: Space.LG

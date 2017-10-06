@@ -1,3 +1,9 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+* {
+  font-family: "Spoqa Han Sans", "Sans-serif";
+}
+
 html {
   height: 100%;
 }
@@ -11,6 +17,10 @@ body,
 
 button:hover {
   cursor: pointer;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 .markdown-container {

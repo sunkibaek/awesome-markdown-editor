@@ -22,14 +22,13 @@ const styles = {
   },
   panesContainer: {
     display: "flex",
-    flex: 1,
-    padding: Space.MD
+    flex: 1
   }
 };
 
 class App extends Component<{}, IState> {
   private storageManager: StorageManager;
-  private saveTimer: NodeJS.Timer;
+  private saveTimer: NodeJS.Timer | number;
 
   constructor(props: {}) {
     super(props);

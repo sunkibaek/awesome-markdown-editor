@@ -14,10 +14,7 @@ const styles = {
     backgroundColor: Color.NAVY,
     display: "flex",
     justifyContent: "space-between" as "space-between",
-    paddingBottom: Space.LG,
-    paddingLeft: Space.MD,
-    paddingRight: Space.MD,
-    paddingTop: Space.LG
+    padding: Space.LG
   },
   disabledInput: {
     backgroundColor: Color.LIGHT_GRAY

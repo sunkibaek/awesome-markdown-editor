@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
+import Color from "./styles/Color";
 import Space from "./styles/Space";
 
 interface IProps {
@@ -9,6 +10,7 @@ interface IProps {
 
 const styles = {
   container: {
+    backgroundColor: Color.WHITE,
     flex: 1,
     overflowY: "scroll" as "scroll",
     padding: Space.LG
