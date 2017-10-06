@@ -1,0 +1,9 @@
+{
+  "name": "markdown-editor",
+  "version": "0.1.0",
+  "description": "Awesome markdown editor",
+  "main": "dist/index.js",
+  "author": "Sunki Baek <sunki.baek@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
