@@ -11,13 +11,13 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
-    extensions: [".ts", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"]
   },
 
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
       },
 
@@ -29,7 +29,7 @@ module.exports = {
     ]
   },
 
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
 
   output: {
     filename: "bundle.js",
@@ -39,7 +39,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      title: "Awesome Markdown Editor"
+      template: "./src/index.html"
     })
   ]
 };
